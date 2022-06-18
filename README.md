@@ -1,0 +1,1 @@
+# ascend_HRNetW48_cls
