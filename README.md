@@ -46,8 +46,8 @@ Dataset used: [ImageNet](http://www.image-net.org/)
 
 # Environmental Requirements
 
-- Hardware（Ascend or GPU）
-    - Use Ascend or GPU to build the hardware environment.
+- Hardware（Ascend）
+    - Use Ascend to build the hardware environment.
 - Framework
     - [MindSpore](https://www.mindspore.cn/install)
 - For more information, see the following resources:
@@ -174,6 +174,7 @@ bash scripts/run_eval.sh [DATASET_PATH] [CHECKPOINT_PATH]
 
 
 - DATASET_PATH - path to the test part of the dataset.
+
 - CHECKPOINT_PATH - path to the trained model checkpoint.
 
 ### Result
