@@ -142,11 +142,7 @@ in particular, before training, you need to install `requirements.txt` by follow
 bash scripts/run_standalone_train.sh [DATASET_PATH] [TRAIN_OUTPUT_PATH] [CHECKPOINT_PATH](optional) [BEGIN_EPOCH](optional) [EVAL_DATASET_PATH](optional)
 # Distribute training
 bash scripts/run_distribute_train.sh [RANK_TABLE_FILE] [DATASET_PATH] [TRAIN_OUTPUT_PATH] [CHECKPOINT_PATH](optional) [BEGIN_EPOCH](optional) [EVAL_DATASET_PATH](optional)
-# GPU
-# Standalone training
-bash scripts/run_standalone_train_gpu.sh [DATASET_PATH] [TRAIN_OUTPUT_PATH]
-# Distribute training
-bash scripts/run_distribute_train_gpu.sh [DATASET_PATH] [TRAIN_OUTPUT_PATH]
+
 ```
 
 - DATASET_PATH - path to the training part of the dataset.
@@ -175,9 +171,7 @@ epoch: [ 4/120], epoch time: 825988.881, steps: 10009, per step time: 82.525, av
 # Evaluation example
 # Ascend
 bash scripts/run_eval.sh [DATASET_PATH] [CHECKPOINT_PATH]
-# GPU
-bash scripts/run_eval_gpu.sh [DATASET_PATH] [CHECKPOINT_PATH]
-```
+
 
 - DATASET_PATH - path to the test part of the dataset.
 - CHECKPOINT_PATH - path to the trained model checkpoint.
@@ -201,38 +195,36 @@ python export.py --checkpoint_path [CHECKPOINT_PATH] --file_name [FILE_NAME] --f
 - CHECKPOINT_PATH - Path to the trained model checkpoint.
 - FILE_NAME - Path and name of the output file.
 - FILE_FORMAT - Output converted model format ("AIR", "ONNX", "MINDIR").
-- DEVICE_TARGET - Target device platform ("Ascend", "GPU").
+- DEVICE_TARGET - Target device platform ("Ascend").
 
 # Model Description
 
 ## Training Performance
 
-| Parameter                | Ascend                    | GPU                                                  |
-|--------------------------| --------------------------| -----------------------------------------------------|
-| Model                    | HRNet                     | HRNet                                                |
-| Model version            | W48-cls                   | W48-cls                                              |
-| Operating environment    | HUAWEI CLOUD Modelarts    | Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
-| Upload date              | 2021-11-21                | 2022-05-31                                           |
-| Dataset                  | imagenet                  | imagenet                                             |
-| Training parameters      | src/config.py             | src/config.py                                        |
-| Optimizer                | RMSProp                   | RMSProp                                              |
-| Loss function            | CrossEntropySmooth        | CrossEntropySmooth                                   |
-| Training duration (8p)   | 28.7h                     | 55.8h                                                |
-| Parameter quantity (M)   | 296M                      | 296M                                                 |
-| Script                   | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) |
-
+| Parameter                | Ascend                    | 
+|--------------------------| --------------------------| 
+| Model                    | HRNet                     |
+| Model version            | W48-cls                   | 
+| Operating environment    | HUAWEI CLOUD Modelarts    |
+| Upload date              | 2021-11-21                | 
+| Training parameters      | src/config.py             | 
+| Optimizer                | RMSProp                   | 
+| Loss function            | CrossEntropySmooth        | 
+| Training duration (8p)   | 28.7h                     | 
+| Parameter quantity (M)   | 296M                      | 
+| Script                   | [链接](https://gitee.com/mindspore/models/tree/master/research/cv/HRNetW48_cls) | 
 ## Inference Performance
 
-| Parameter                | Ascend                    | GPU                                                  |
-|--------------------------| --------------------------| -----------------------------------------------------|
-| Model                    | HRNet                     | HRNet                                                |
-| Model version            | W48-cls                   | W48-cls                                              |
-| Operating environment    | HUAWEI CLOUD Modelarts    | Nvidia RTX 3090, Intel Xeon Gold 6226R CPU @ 2.90GHz |
-| Upload date              | 2021-11-21                | 2022-05-31                                           |
-| Dataset                  | imagenet (val 50k images) | imagenet (val 50k images)                            |
-| Inference parameters     | batch_size=16             | batch_size=64                                        |
-| Inference duration       | 5min                      | 5min                                                 |
-| Metric (8p)              | Top1[79.4%]               | Top1[79.3%]                                          |
+| Parameter                | Ascend                    | 
+|--------------------------| --------------------------| 
+| Model                    | HRNet                     | 
+| Model version            | W48-cls                   | 
+| Operating environment    | HUAWEI CLOUD Modelarts    |
+| Upload date              | 2021-11-21                | 
+| Dataset                  | imagenet (val 50k images) | 
+| Inference parameters     | batch_size=16             | 
+| Inference duration       | 5min                      | 
+| Metric (8p)              | Top1[79.4%]               | 
 
 # Description of Random Cases
 
